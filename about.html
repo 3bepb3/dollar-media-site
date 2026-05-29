@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Silverpathian</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="nav-container">
+      <!-- UPDATED BIGGEST HEADER LOGO -->
+      <a href="index.html" class="logo-link">
+        <img src="https://z-cdn-media.chatglm.cn/files/d263efbc-641c-4ed9-9336-a84d72075826.png?auth_key=1879001810-474fcfa80007404496334734822122dd-0-450c47359f17500c4839d1f8749a159f" alt="Silverpathian Logo" class="logo-img">
+        <span class="logo-brand">Silverpathian</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link" >Home</a>
+        <a href="product.html" class="nav-link" >Product</a>
+        <a href="about.html" class="nav-link active" >About</a>
+        <a href="product.html" class="nav-btn">Shop Now</a>
+      </nav>
+      <!-- Burger button -->
+      <button class="burger" id="burgerBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="index.html" class="">Home</a>
+    <a href="product.html" class="">Product</a>
+    <a href="about.html" class="active">About</a>
+    <a href="product.html" class="mobile-btn">Shop Now</a>
+  </div>
+
+  
+
+<main>
+
+      <div class="about-wrapper">
+        <div class="about-visual">
+          <img src="https://z-cdn-media.chatglm.cn/files/f07c34e4-3ee1-4801-a70f-435c809ad89f.jpg?auth_key=1878999726-934887c1ca3f4c4f99e84d34cd480a2d-0-4ac13aa902c503ed326a445960329993" alt="About Silverpathian Digital Security" style="opacity:0; transition: opacity 0.3s ease;" onload="this.style.opacity='1'">
+        </div>
+        <div class="about-info">
+          <div class="section-label">About Us</div>
+          <h1 class="section-title">About Silverpathian</h1>
+          <p style="margin-bottom: 30px; color: var(--text-muted); font-size: 1.1rem;">Dollar Media Technology Limited is a Hong Kong-based company specializing in hardware security for digital assets. We distribute hardware wallets that keep private keys entirely offline. Our mission is to provide sovereign, self-custody security solutions without offering financial, exchange, or investment services.</p>
+          
+          <div class="company-details-list">
+            <p><strong>Legal Name:</strong> Dollar Media Technology Limited</p>
+            <p><strong>Registered Address:</strong><br>Kam Fone Mansion, 16 KAMFONG STREET,<br>YAU TSIM MONG DISTRICT KOWLOON,<br>Mong Kok, Hong Kong</p>
+            <p><strong>Contact:</strong> <a href="mailto:support@silverpathian.com" style="color:var(--accent-primary)">support@silverpathian.com</a></p>
+          </div>
+        </div>
+      </div>
+    
+</main>
+
+<footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <!-- BIGGEST FOOTER LOGO -->
+        <img src="https://z-cdn-media.chatglm.cn/files/d263efbc-641c-4ed9-9336-a84d72075826.png?auth_key=1879001810-474fcfa80007404496334734822122dd-0-450c47359f17500c4839d1f8749a159f" alt="Silverpathian Logo" class="footer-logo-img">
+        <h4>Silverpathian</h4>
+        <p>Hardware Wallet for Offline Crypto Security.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <p>Dollar Media Technology Limited</p>
+        <p>Kam Fone Mansion, 16 KAMFONG STREET,<br>YAU TSIM MONG DISTRICT KOWLOON,<br>Mong Kok, Hong Kong</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Email: <a href="mailto:support@silverpathian.com">support@silverpathian.com</a></p>
+        <p>Google Ads CID: 943-996-2139</p>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <p><a href="privacy.html" >Privacy Policy</a></p>
+        <p><a href="terms.html" >Terms of Service</a></p>
+        <p><a href="cookies.html" >Cookie Policy</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © Dollar Media Technology Limited. All rights reserved.
+    </div>
+  </footer>
+
+<script>
+    // --- ROUTER (SPA LOGIC) ---
+    function router(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      const target = document.getElementById(pageId);
+      if (target) {
+        requestAnimationFrame(() => {
+          target.classList.add('active');
+          window.scrollTo(0, 0);
+        });
+      }
+      history.pushState(null, null, `#${pageId}`);
+      
+      // Update Active Link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if(link.getAttribute('href') === `#${pageId}`) link.classList.add('active');
+      });
+    }
+
+    // Handle Back/Forward Browser Buttons
+    window.addEventListener('popstate', () => {
+      const hash = window.location.hash.replace('#', '') || 'home';
+    });
+
+    // --- COINS MARQUEE ---
+    const coins = ['Bitcoin (BTC)','Ethereum (ETH)','Solana (SOL)','Litecoin (LTC)','Cardano (ADA)','Polkadot (DOT)','Chainlink (LINK)','Avalanche (AVAX)','Cosmos (ATOM)','Algorand (ALGO)','Stellar (XLM)','Monero (XMR)','VeChain (VET)','Hedera (HBAR)','Tezos (XTZ)','EOS','Filecoin (FIL)','Aave (AAVE)','Compound (COMP)','Uniswap (UNI)'];
+    const track = document.getElementById('coinsTrack');
+    // Duplicate array enough times to fill wide screens
+    const quadrupled = [...coins, ...coins, ...coins, ...coins, ...coins]; 
+    quadrupled.forEach(c => {
+      const el = document.createElement('div');
+      el.className = 'coin-pill';
+      el.textContent = c;
+      track.appendChild(el);
+    });
+
+    // --- CRYPTOCLOUD PAYMENT ---
+    const CC_API_KEY  = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiT1RBMU9EYz0iLCJ0eXBlIjoicHJvamVjdCIsInYiOiJmNTA4MThkM2JhY2Q3ZjM5M2MwYzIxZTBlOTQ2NTE4YTQ0MzliMGViNWU3MjI5Yzk3MGM4MDRlOGFhNDA2OTQ2IiwiZXhwIjo4ODE3MTkyMjM4M30.Oi9eO98Y11IHO3IoiZMTttUcG2StaLfPOWd-5unAHIA';
+    const CC_SHOP_ID  = 'eJTcVvC2op80lK1Q';
+
+    function updateOrderTotal() {
+      const val = document.getElementById('field-product').value;
+      const display = document.getElementById('orderTotalDisplay');
+      const summary = document.getElementById('orderSummary');
+      if (val === '0') {
+        display.textContent = 'Contact us';
+        summary.style.display = 'none';
+      } else {
+        display.textContent = '$' + val;
+        summary.style.display = 'block';
+      }
+    }
+
+    async function handleOrder(e) {
+      e.preventDefault();
+
+      const amount   = document.getElementById('field-product').value;
+      const email    = document.getElementById('field-email').value;
+      const name     = document.getElementById('field-name').value;
+      const address  = document.getElementById('field-address').value;
+      const phone    = document.getElementById('field-phone').value;
+
+      // Bulk inquiry — no payment, just show message
+      if (amount === '0') {
+        alert('For bulk orders please contact us at support@silverpathian.com');
+        return;
+      }
+
+      const btn      = document.getElementById('payBtn');
+      const btnText  = document.getElementById('payBtnText');
+      btn.disabled   = true;
+      btnText.textContent = 'Creating payment link…';
+
+      const orderDesc = `Silverpathian | ${name} | ${email} | ${phone} | ${address}`;
+
+      try {
+        const res = await fetch('https://api.cryptocloud.plus/v2/invoice/create', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Token ' + CC_API_KEY,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            amount:   parseFloat(amount),
+            shop_id:  CC_SHOP_ID,
+            currency: 'USD',
+            email:    email,
+            order_id: 'SP-' + Date.now(),
+            add_fields: { description: orderDesc }
+          })
+        });
+
+        const data = await res.json();
+
+        if (data.status === 'success' && data.result && data.result.link) {
+          // Redirect to CryptoCloud payment page
+          window.location.href = data.result.link;
+        } else {
+          throw new Error(data.result || data.message || 'Unknown error from CryptoCloud');
+        }
+
+      } catch (err) {
+        document.getElementById('checkoutStep1').style.display = 'none';
+        document.getElementById('checkoutError').style.display = 'block';
+        document.getElementById('checkoutErrorMsg').textContent = err.message || 'Failed to create payment. Please try again.';
+      } finally {
+        btn.disabled  = false;
+        btnText.textContent = 'Pay with Crypto →';
+      }
+    }
+
+    // --- SMOOTH SCROLL FOR ANCHOR LINKS ---
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if(element) {
+        // Determine header height for offset
+        const headerOffset = 100;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }
+
+    // --- PARALLAX EFFECT (HOME ONLY) ---
+    const heroSection = document.querySelector('.hero');
+    const deviceImg = document.getElementById('hero-device-img');
+    
+    if(heroSection && deviceImg) {
+      heroSection.addEventListener('mousemove', (e) => {
+        const x = (window.innerWidth / 2 - e.clientX) / 25;
+        const y = (window.innerHeight / 2 - e.clientY) / 25;
+        // Combines the CSS animation with JS transform is tricky, so we strictly control it here or use a wrapper
+        // For simplicity, we modify the rotation slightly
+        deviceImg.style.transform = `translateY(${y}px) rotateY(${x}deg) rotateX(${-y}deg)`;
+      });
+      heroSection.addEventListener('mouseleave', () => {
+        // Return to CSS animation control
+        deviceImg.style.transform = ''; 
+      });
+    }
+
+    // --- CAROUSEL ---
+    let carouselIndex = 0;
+    const carouselTotal = 2;
+
+    function carouselMove(dir) {
+      carouselIndex = (carouselIndex + dir + carouselTotal) % carouselTotal;
+      carouselUpdate();
+    }
+    function carouselGoTo(i) {
+      carouselIndex = i;
+      carouselUpdate();
+    }
+    function carouselUpdate() {
+      const track = document.getElementById('carouselTrack');
+      if (track) track.style.transform = `translateX(-${carouselIndex * 100}%)`;
+      document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === carouselIndex);
+      });
+      document.querySelectorAll('.spec-item').forEach(item => {
+        const slide = parseInt(item.getAttribute('data-slide'));
+        item.classList.toggle('active-spec', slide === carouselIndex);
+      });
+    }
+
+    // Auto-advance carousel every 4s
+    setInterval(() => carouselMove(1), 4000);
+
+    // Swipe support
+    (function() {
+      let startX = 0;
+      const outer = document.querySelector('.carousel-track-outer');
+      if (!outer) return;
+      outer.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+      outer.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) carouselMove(diff > 0 ? 1 : -1);
+      });
+    })();
+
+    // --- FAQ TOGGLE ---
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Initialize Router
+  
+  // ===== BURGER MENU =====
+  document.addEventListener('DOMContentLoaded', function() {
+    var burgerBtn = document.getElementById('burgerBtn');
+    var mobileMenu = document.getElementById('mobileMenu');
+    var mobileClose = document.getElementById('mobileClose');
+
+    if (!burgerBtn || !mobileMenu) return;
+
+    function openMenu() {
+      burgerBtn.classList.add('open');
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      burgerBtn.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    burgerBtn.addEventListener('click', function() {
+      mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    if (mobileClose) {
+      mobileClose.addEventListener('click', closeMenu);
+    }
+    mobileMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+    });
+    // Close on ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+  });
+
+  </script>
+
+</body>
+</html>
