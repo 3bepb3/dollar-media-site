@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silverpathian — Hardware Wallet for Offline Crypto Security</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="nav-container">
+      <!-- UPDATED BIGGEST HEADER LOGO -->
+      <a href="/" class="logo-link">
+        <img src="https://z-cdn-media.chatglm.cn/files/d263efbc-641c-4ed9-9336-a84d72075826.png?auth_key=1879001810-474fcfa80007404496334734822122dd-0-450c47359f17500c4839d1f8749a159f" alt="Silverpathian Logo" class="logo-img">
+        <span class="logo-brand">Silverpathian</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/" class="nav-link active" >Home</a>
+        <a href="/checkout" class="nav-link" >Product</a>
+        <a href="/about" class="nav-link" >About</a>
+        <a href="/checkout" class="nav-btn">Shop Now</a>
+      </nav>
+      <!-- Burger button -->
+      <button class="burger" id="burgerBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="/" class="active">Home</a>
+    <a href="/product" class="" onclick="window.location.href='/product';return false;">Product</a>
+    <a href="/about" class="">About</a>
+    <a href="/checkout" class="mobile-btn">Shop Now</a>
+  </div>
+
+  
+
+<main>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="hero-badge">Hardware Wallet · Offline Security</div>
+            <h1>Your Crypto.<br><em>Your Keys.</em><br>Your Security.</h1>
+            <p class="hero-sub">Hardware wallets that keep your private keys completely offline. Full self-custody. No third-party custody. No compromises.</p>
+            <div class="hero-actions">
+              <a href="/product" class="btn-primary" >Shop Now</a>
+              <a href="#security" class="btn-secondary" onclick="scrollToSection('security-section')">Learn More</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="device-orbit"></div>
+            <!-- HERO IMAGE (SMALLER) -->
+            <img src="https://z-cdn-media.chatglm.cn/files/1539edb1-aad2-49bc-b135-2a83d01b863a.png?auth_key=1879000896-e20b4856315347e589364ba777b5763f-0-229734d6f5d55b94844a32bbd85c68df" alt="Silverpathian Vault Pro Hardware Wallet" id="hero-device-img" draggable="false">
+          </div>
+        </div>
+      </section>
+
+      <!-- SECURITY (UPDATED WITH IMAGES) -->
+      <section class="security-section" id="security-section">
+        <div class="container">
+          <!-- TOP GRID: Text + Visual -->
+          <div class="security-grid">
+            <div class="security-text-area">
+              <div class="section-label">Security</div>
+              <h2 class="section-title">Hardware Security.<br>Absolute Ownership.</h2>
+              <p class="section-body">Silverpathian creates an advanced air gap between your private keys and the internet. No matter what happens online, your assets remain fully protected.</p>
+            </div>
+            <div class="security-visual-container">
+              <!-- IMAGE 2: The Container/Key -->
+              <img src="https://z-cdn-media.chatglm.cn/files/26e48fff-ae79-4982-8725-36f9f746e6d3.png?auth_key=1879000118-3e20e307dad44724b5f80dcb48f18b7c-0-4c1ea5eaf0b52eb50c252ab9801517f9" alt="Secure Hardware Core">
+            </div>
+          </div>
+
+          <!-- BOTTOM GRID: 3 Feature Cards (UPDATED ICONS) -->
+          <div class="security-features">
+            <!-- Card 1 -->
+            <div class="feature-item">
+              <div class="feature-icon">
+                <img src="https://z-cdn-media.chatglm.cn/files/eca65aa3-1c4e-44fd-8af1-aa48b48da898.png?auth_key=1879008302-13f1a70e565b498cb0372f5e7d3daf5c-0-362d2161fd415a1a2175e5ce44f0c85d" alt="Unlock Icon">
+              </div>
+              <div class="feature-content">
+                <h4>100% Offline Storage</h4>
+                <p>Your private keys are generated and stored on the device, never touching the internet.</p>
+              </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="feature-item">
+              <div class="feature-icon">
+                <img src="https://z-cdn-media.chatglm.cn/files/d05af605-446b-4df6-8820-36ba54a16580.png?auth_key=1879008302-c818edc1e8ec42d797ed568fdc454121-0-f0f543ae62d18f3b588d5f6e31f9bf05" alt="Fingerprint Icon">
+              </div>
+              <div class="feature-content">
+                <h4>Private Keys Never Leave</h4>
+                <p>Every transaction is signed inside the secure chip — keys stay on-device, always.</p>
+              </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="feature-item">
+              <div class="feature-icon">
+                <img src="https://z-cdn-media.chatglm.cn/files/dfb0e115-953b-423e-9b6f-4a0bebc93440.png?auth_key=1879008302-f0eb9194fd294b48934f2c0d638d4f9e-0-45dfa55e468d5b2245a85b99ba245c91" alt="Shield Icon">
+              </div>
+              <div class="feature-content">
+                <h4>Self-Custody by Design</h4>
+                <p>You hold the recovery seed. You are the only authority over your assets.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- DOES/DOESN'T -->
+          <div class="does-grid">
+            <div class="does-card does-yes">
+              <h4><span>✓</span> What This Device Does</h4>
+              <ul class="does-list">
+                <li>Stores private keys offline in a secure hardware chip</li>
+                <li>Signs transactions internally — keys never leave the device</li>
+                <li>Works with Silverpathian Suite for balance tracking and firmware updates</li>
+              </ul>
+            </div>
+            <div class="does-card does-no">
+              <h4><span>✕</span> What This Device Does NOT Do</h4>
+              <ul class="does-list">
+                <li>Does not buy, sell, exchange, or trade cryptocurrencies</li>
+                <li>Does not connect to DeFi protocols or staking services</li>
+                <li>Does not provide financial, investment, or trading services</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCT SHOWCASE CAROUSEL -->
+      <section class="showcase-section">
+        <div class="container">
+          <div style="text-align:center; margin-bottom: 70px;">
+            <div class="section-label">The Device</div>
+            <h2 class="section-title">Silverpathian Vault Pro</h2>
+            <p class="section-body" style="margin: 0 auto;">Precision-engineered aluminium body. Secure OLED display. Two physical confirmation buttons. No internet connection. Ever.</p>
+          </div>
+
+          <div class="showcase-layout">
+
+            <!-- LEFT: specs -->
+            <div class="showcase-info">
+              <div class="spec-item active-spec" data-slide="0">
+                <span class="spec-icon"><img src="icon-display.png" alt="Display"></span>
+                <div>
+                  <strong>OLED Display</strong>
+                  <p>Every transaction is shown on the secure screen — verify before you sign, always.</p>
+                </div>
+              </div>
+              <div class="spec-item" data-slide="0">
+                <span class="spec-icon"><img src="icon-buttons.png" alt="Buttons"></span>
+                <div>
+                  <strong>2 Physical Buttons</strong>
+                  <p>Confirm or reject transactions directly on the device, without touching your computer.</p>
+                </div>
+              </div>
+              <div class="spec-item" data-slide="1">
+                <span class="spec-icon"><img src="icon-secure.png" alt="Secure Chip"></span>
+                <div>
+                  <strong>Secure Hardware Chip</strong>
+                  <p>Private keys are generated and stored offline inside a hardened secure element.</p>
+                </div>
+              </div>
+              <div class="spec-item" data-slide="1">
+                <span class="spec-icon"><img src="icon-usb.png" alt="USB-C"></span>
+                <div>
+                  <strong>USB-C Connectivity</strong>
+                  <p>Universal, reliable connection to desktop and laptop computers.</p>
+                </div>
+              </div>
+              <div class="spec-item" data-slide="1">
+                <span class="spec-icon"><img src="icon-shield.png" alt="Shield"></span>
+                <div>
+                  <strong>Aluminium Body</strong>
+                  <p>Durable, tamper-evident build designed to last.</p>
+                </div>
+              </div>
+
+              <a href="/product" class="btn-primary" style="margin-top: 8px;">
+                Buy Now — $99
+              </a>
+            </div>
+
+            <!-- RIGHT: carousel -->
+            <div class="carousel-wrapper">
+              <div class="carousel-track-outer">
+                <div class="carousel-track" id="carouselTrack">
+                  <div class="carousel-slide">
+                    <img src="device-front.png" alt="Silverpathian Vault Pro — front view">
+                    <div class="carousel-slide-label">Front View</div>
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="device-side.png" alt="Silverpathian Vault Pro — angle view">
+                    <div class="carousel-slide-label">Angle View</div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="carousel-btn carousel-btn-prev" onclick="carouselMove(-1)" aria-label="Previous">&#8592;</button>
+              <button class="carousel-btn carousel-btn-next" onclick="carouselMove(1)" aria-label="Next">&#8594;</button>
+
+              <div class="carousel-dots">
+                <button class="carousel-dot active" onclick="carouselGoTo(0)"></button>
+                <button class="carousel-dot" onclick="carouselGoTo(1)"></button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Specs bar -->
+          <div class="showcase-bar">
+            <div class="showcase-bar-item">
+              <span class="bar-value">10,000+</span>
+              <span class="bar-label">Supported Coins</span>
+            </div>
+            <div class="showcase-bar-divider"></div>
+            <div class="showcase-bar-item">
+              <span class="bar-value">100%</span>
+              <span class="bar-label">Offline Storage</span>
+            </div>
+            <div class="showcase-bar-divider"></div>
+            <div class="showcase-bar-item">
+              <span class="bar-value">0</span>
+              <span class="bar-label">Keys Ever Exposed</span>
+            </div>
+            <div class="showcase-bar-divider"></div>
+            <div class="showcase-bar-item">
+              <span class="bar-value">USB-C</span>
+              <span class="bar-label">Connectivity</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- APP (SOFTWARE) -->
+      <section class="app-section">
+        <div class="container">
+          <div class="app-section-grid">
+            <!-- LEFT: text + icons -->
+            <div class="app-section-left">
+              <div class="section-label">Software</div>
+              <h2 class="section-title">Silverpathian Suite:<br>Command Center for Your Crypto</h2>
+              <p class="section-body">One elegant desktop and mobile app to securely manage your portfolio. Track balances, send and receive assets, and update your device firmware — all while your private keys stay safely offline. Silverpathian Suite does not facilitate buying, selling, exchanging, or trading of cryptocurrencies.</p>
+              <div class="app-icons-grid">
+                <div class="app-icon-card">
+                  <span class="icon">
+                    <img src="https://z-cdn-media.chatglm.cn/files/0b30de4d-9ff7-495b-9ca7-533e884abca4.png?auth_key=1879008832-8d9b426465e849d69c614b2eefb200ab-0-17ff7554ca4ee02f6d38c707268a73b3" alt="Exchange Icon">
+                  </span>
+                  <h4>Send / Receive</h4>
+                  <p>Securely broadcast signed transactions</p>
+                </div>
+                <div class="app-icon-card">
+                  <span class="icon">
+                    <img src="https://z-cdn-media.chatglm.cn/files/1c9f6435-39d4-4b53-8a51-ae704e95abba.png?auth_key=1879008832-a1ad4515cd10454ab1c1d0c970cb504f-0-8a6e072d9fe04f8cfa1ec53a51422996" alt="Growth Chart Icon">
+                  </span>
+                  <h4>Portfolio Overview</h4>
+                  <p>Track balances across digital assets</p>
+                </div>
+                <div class="app-icon-card">
+                  <span class="icon">
+                    <img src="https://z-cdn-media.chatglm.cn/files/fd5c86ca-2ecf-477e-8ec1-28b1f1e2d2d2.png?auth_key=1879008832-a2dc48f5cf614b7099816f8cb5ba6381-0-4d44476789bb602eb20c39d920a0e49b" alt="Asset Management Icon">
+                  </span>
+                  <h4>Asset Management</h4>
+                  <p>Organize and monitor your holdings</p>
+                </div>
+                <div class="app-icon-card">
+                  <span class="icon">
+                    <img src="https://z-cdn-media.chatglm.cn/files/40cddc49-0878-4d25-bacf-8a6f429b7766.png?auth_key=1879008832-f8f72c1031274fb5b9117f739dc43c8e-0-f3bdae2b6984ff5cf39d7b8dc563c69f" alt="Firmware Update Icon">
+                  </span>
+                  <h4>Firmware Updates</h4>
+                  <p>Keep your device secure and up to date</p>
+                </div>
+              </div>
+            </div>
+            <!-- RIGHT: photo -->
+            <div class="app-section-visual">
+              <div class="app-visual-inner">
+                <img src="Y4Hsg.jpg" alt="Silverpathian hardware wallet connected to MacBook">
+                <div class="app-visual-badge">
+                  <span class="badge-dot"></span>
+                  Plug &amp; Secure
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COINS -->
+      <section class="coins-section">
+        <div class="container">
+          <div style="text-align: center; margin-bottom: 40px;">
+            <div class="section-label">Compatibility</div>
+            <h2 class="section-title">10,000+ Coins.<br>One Secure Device.</h2>
+            <p class="section-body" style="margin: 0 auto;">From Bitcoin to the latest digital assets — Silverpathian secures the entire ecosystem.</p>
+          </div>
+        </div>
+        <div class="coins-marquee">
+          <div class="coins-track" id="coinsTrack"></div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq-section">
+        <div class="container">
+          <div class="faq-header" style="text-align: center;">
+            <div class="section-label">FAQ</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+          </div>
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                <span class="faq-question-text"><span class="faq-num">01 —</span>I've heard big exchanges are safe now, do I really need a hardware wallet?</span>
+                <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">Even today, exchange hacks still happen, and users lose funds they thought were safe. Holding your crypto on an exchange means you don't truly control it — the exchange does. With Silverpathian you stay in control of your keys, protected by industry-leading offline security and no third-party risk.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                <span class="faq-question-text"><span class="faq-num">02 —</span>Will my crypto be lost if I lose my Silverpathian device?</span>
+                <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">No — as long as you keep the wallet backup you create during setup, your crypto is safe. You can restore your entire wallet to a new Silverpathian device with that wallet backup, also known as a recovery phrase. Think of it as your secure recovery key. Just be sure to store your wallet backup safely offline, and never share it with anyone.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                <span class="faq-question-text"><span class="faq-num">03 —</span>Is owning my own crypto too technical or complicated?</span>
+                <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">Not at all. Silverpathian makes it simple to take control of your assets. As a non-custodial wallet, Silverpathian ensures only you hold the keys to your crypto. The setup process is straightforward, with an intuitive interface and clear step-by-step guidance — making self-custody easy and keeping your crypto securely in your hands without unnecessary complexity.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                <span class="faq-question-text"><span class="faq-num">04 —</span>I only have a small amount of crypto. Do I still need a hardware wallet?</span>
+                <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">Yes — even if you're starting with a small amount, protecting it now can pay off later. Crypto is a long-term game, and what's worth a few hundred dollars today could be worth significantly more in the future. Silverpathian ensures that no matter how your holdings grow, they're safe from day one.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                <span class="faq-question-text"><span class="faq-num">05 —</span>What makes Silverpathian different from other crypto wallets?</span>
+                <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">Silverpathian is built for true cold storage — your private keys are stored entirely offline inside a secure hardware chip and never leave the device. Unlike custodial wallets or exchanges, Silverpathian gives you full self-custody with features like phishing protection, passphrase support, and a hardened Secure Element. It's purpose-built for users who want sovereign control over their assets without compromise.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                <span class="faq-question-text"><span class="faq-num">06 —</span>Are there hidden fees when using Silverpathian?</span>
+                <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">With Silverpathian, pricing is fully transparent — there are no hidden fees or surprise costs. When you send crypto, you only pay the standard network transaction fee (e.g., to Bitcoin miners or Ethereum validators). Silverpathian itself does not charge transaction fees. What you see is what you pay.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-section" style="text-align: center; background: radial-gradient(circle at center, #15171c 0%, #050505 70%); padding: 120px 0;">
+        <div class="container">
+          <div class="section-label">Get Started</div>
+          <h2 class="section-title">Ready to Take Control?</h2>
+          <p class="section-body" style="margin: 0 auto 40px;">Get your Silverpathian today and take the first step toward true financial sovereignty.</p>
+          <a href="/product" class="btn-primary" >Shop Now</a>
+        </div>
+      </section>
+    
+</main>
+
+<footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <!-- BIGGEST FOOTER LOGO -->
+        <img src="https://z-cdn-media.chatglm.cn/files/d263efbc-641c-4ed9-9336-a84d72075826.png?auth_key=1879001810-474fcfa80007404496334734822122dd-0-450c47359f17500c4839d1f8749a159f" alt="Silverpathian Logo" class="footer-logo-img">
+        <h4>Silverpathian</h4>
+        <p>Hardware Wallet for Offline Crypto Security.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <p>Dollar Media Technology Limited</p>
+        <p>Kam Fone Mansion, 16 KAMFONG STREET,<br>YAU TSIM MONG DISTRICT KOWLOON,<br>Mong Kok, Hong Kong</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Email: <a href="mailto:support@silverpathian.com">support@silverpathian.com</a></p>
+        <p>Google Ads CID: 943-996-2139</p>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <p><a href="/privacy" >Privacy Policy</a></p>
+        <p><a href="/terms" >Terms of Service</a></p>
+        <p><a href="/cookies" >Cookie Policy</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © Dollar Media Technology Limited. All rights reserved.
+    </div>
+  </footer>
+
+<script>
+    // (SPA router removed — multipage site)
+
+    // --- COINS MARQUEE ---
+    const coins = ['Bitcoin (BTC)','Ethereum (ETH)','Solana (SOL)','Litecoin (LTC)','Cardano (ADA)','Polkadot (DOT)','Chainlink (LINK)','Avalanche (AVAX)','Cosmos (ATOM)','Algorand (ALGO)','Stellar (XLM)','Monero (XMR)','VeChain (VET)','Hedera (HBAR)','Tezos (XTZ)','EOS','Filecoin (FIL)','Aave (AAVE)','Compound (COMP)','Uniswap (UNI)'];
+    const track = document.getElementById('coinsTrack');
+    // Duplicate array enough times to fill wide screens
+    const quadrupled = [...coins, ...coins, ...coins, ...coins, ...coins]; 
+    quadrupled.forEach(c => {
+      const el = document.createElement('div');
+      el.className = 'coin-pill';
+      el.textContent = c;
+      track.appendChild(el);
+    });
+
+    // --- CRYPTOCLOUD PAYMENT ---
+    const CC_API_KEY  = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiT1RBMU9EYz0iLCJ0eXBlIjoicHJvamVjdCIsInYiOiJmNTA4MThkM2JhY2Q3ZjM5M2MwYzIxZTBlOTQ2NTE4YTQ0MzliMGViNWU3MjI5Yzk3MGM4MDRlOGFhNDA2OTQ2IiwiZXhwIjo4ODE3MTkyMjM4M30.Oi9eO98Y11IHO3IoiZMTttUcG2StaLfPOWd-5unAHIA';
+    const CC_SHOP_ID  = 'eJTcVvC2op80lK1Q';
+
+    function updateOrderTotal() {
+      const val = document.getElementById('field-product').value;
+      const display = document.getElementById('orderTotalDisplay');
+      const summary = document.getElementById('orderSummary');
+      if (val === '0') {
+        display.textContent = 'Contact us';
+        summary.style.display = 'none';
+      } else {
+        display.textContent = '$' + val;
+        summary.style.display = 'block';
+      }
+    }
+
+    async function handleOrder(e) {
+      e.preventDefault();
+
+      const amount   = document.getElementById('field-product').value;
+      const email    = document.getElementById('field-email').value;
+      const name     = document.getElementById('field-name').value;
+      const address  = document.getElementById('field-address').value;
+      const phone    = document.getElementById('field-phone').value;
+
+      // Bulk inquiry — no payment, just show message
+      if (amount === '0') {
+        alert('For bulk orders please contact us at support@silverpathian.com');
+        return;
+      }
+
+      const btn      = document.getElementById('payBtn');
+      const btnText  = document.getElementById('payBtnText');
+      btn.disabled   = true;
+      btnText.textContent = 'Creating payment link…';
+
+      const orderDesc = `Silverpathian | ${name} | ${email} | ${phone} | ${address}`;
+
+      try {
+        const res = await fetch('https://api.cryptocloud.plus/v2/invoice/create', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Token ' + CC_API_KEY,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            amount:   parseFloat(amount),
+            shop_id:  CC_SHOP_ID,
+            currency: 'USD',
+            email:    email,
+            order_id: 'SP-' + Date.now(),
+            add_fields: { description: orderDesc }
+          })
+        });
+
+        const data = await res.json();
+
+        if (data.status === 'success' && data.result && data.result.link) {
+          // Redirect to CryptoCloud payment page
+          window.location.href = data.result.link;
+        } else {
+          throw new Error(data.result || data.message || 'Unknown error from CryptoCloud');
+        }
+
+      } catch (err) {
+        document.getElementById('checkoutStep1').style.display = 'none';
+        document.getElementById('checkoutError').style.display = 'block';
+        document.getElementById('checkoutErrorMsg').textContent = err.message || 'Failed to create payment. Please try again.';
+      } finally {
+        btn.disabled  = false;
+        btnText.textContent = 'Pay with Crypto →';
+      }
+    }
+
+    // --- SMOOTH SCROLL FOR ANCHOR LINKS ---
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if(element) {
+        // Determine header height for offset
+        const headerOffset = 100;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }
+
+    // --- PARALLAX EFFECT (HOME ONLY) ---
+    const heroSection = document.querySelector('.hero');
+    const deviceImg = document.getElementById('hero-device-img');
+    
+    if(heroSection && deviceImg) {
+      heroSection.addEventListener('mousemove', (e) => {
+        const x = (window.innerWidth / 2 - e.clientX) / 25;
+        const y = (window.innerHeight / 2 - e.clientY) / 25;
+        // Combines the CSS animation with JS transform is tricky, so we strictly control it here or use a wrapper
+        // For simplicity, we modify the rotation slightly
+        deviceImg.style.transform = `translateY(${y}px) rotateY(${x}deg) rotateX(${-y}deg)`;
+      });
+      heroSection.addEventListener('mouseleave', () => {
+        // Return to CSS animation control
+        deviceImg.style.transform = ''; 
+      });
+    }
+
+    // --- CAROUSEL ---
+    let carouselIndex = 0;
+    const carouselTotal = 2;
+
+    function carouselMove(dir) {
+      carouselIndex = (carouselIndex + dir + carouselTotal) % carouselTotal;
+      carouselUpdate();
+    }
+    function carouselGoTo(i) {
+      carouselIndex = i;
+      carouselUpdate();
+    }
+    function carouselUpdate() {
+      const track = document.getElementById('carouselTrack');
+      if (track) track.style.transform = `translateX(-${carouselIndex * 100}%)`;
+      document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === carouselIndex);
+      });
+      document.querySelectorAll('.spec-item').forEach(item => {
+        const slide = parseInt(item.getAttribute('data-slide'));
+        item.classList.toggle('active-spec', slide === carouselIndex);
+      });
+    }
+
+    // Auto-advance carousel every 4s
+    setInterval(() => carouselMove(1), 4000);
+
+    // Swipe support
+    (function() {
+      let startX = 0;
+      const outer = document.querySelector('.carousel-track-outer');
+      if (!outer) return;
+      outer.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+      outer.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) carouselMove(diff > 0 ? 1 : -1);
+      });
+    })();
+
+    // --- FAQ TOGGLE ---
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Initialize Router
+if (mobileClose) {
+      mobileClose.addEventListener('click', closeMenu);
+    }
+    mobileMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+    });
+    // Close on ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+  });
+
+  </script>
+
+
+  <script>
+  // ===== BURGER MENU =====
+  (function() {
+    var burgerBtn = document.getElementById('burgerBtn');
+    var mobileMenu = document.getElementById('mobileMenu');
+    var mobileClose = document.getElementById('mobileClose');
+    if (!burgerBtn || !mobileMenu) return;
+
+    function openMenu() {
+      burgerBtn.classList.add('open');
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      burgerBtn.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    burgerBtn.addEventListener('click', function() {
+      mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+  })();
+  </script>
+
+</body>
+</html>
