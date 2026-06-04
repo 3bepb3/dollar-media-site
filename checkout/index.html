@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Silverpathian</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .field-error {
+      display: block;
+      color: #ef4444;
+      font-size: 0.82rem;
+      margin-top: 6px;
+      min-height: 18px;
+    }
+    .form-control.invalid {
+      border-color: #ef4444 !important;
+      box-shadow: 0 0 0 3px rgba(239,68,68,0.12) !important;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="nav-container">
+      <!-- UPDATED BIGGEST HEADER LOGO -->
+      <a href="/" class="logo-link">
+        <img src="https://z-cdn-media.chatglm.cn/files/d263efbc-641c-4ed9-9336-a84d72075826.png?auth_key=1879001810-474fcfa80007404496334734822122dd-0-450c47359f17500c4839d1f8749a159f" alt="Silverpathian Logo" class="logo-img">
+        <span class="logo-brand">Silverpathian</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/" class="nav-link" >Home</a>
+        <a href="/product" class="nav-link" onclick="window.location.href='/product';return false;">Product</a>
+        <a href="/about" class="nav-link" >About</a>
+        <a href="/checkout" class="nav-btn">Shop Now</a>
+      </nav>
+      <!-- Burger button -->
+      <button class="burger" id="burgerBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="/" class="">Home</a>
+    <a href="/product" class="" onclick="window.location.href='/product';return false;">Product</a>
+    <a href="/about" class="">About</a>
+    <a href="/checkout" class="mobile-btn">Shop Now</a>
+  </div>
+
+  
+
+<main>
+
+      <!-- STEP INDICATOR -->
+      <div style="display:flex; align-items:center; justify-content:center; gap:0; margin-bottom:40px;">
+        <div id="stepInd1" style="display:flex; align-items:center; gap:10px; transition:opacity 0.3s;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--accent-primary);color:#000;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;font-family:var(--font-heading);">1</div>
+          <span style="font-weight:600;font-size:0.95rem;color:#fff;">Your Details</span>
+        </div>
+        <div style="width:60px;height:2px;background:var(--border-color);margin:0 16px;border-radius:2px;overflow:hidden;">
+          <div id="stepLine" style="height:100%;width:0%;background:var(--accent-primary);transition:width 0.5s ease;"></div>
+        </div>
+        <div id="stepInd2" style="display:flex; align-items:center; gap:10px; opacity:0.35; transition:opacity 0.3s;">
+          <div id="stepNum2" style="width:32px;height:32px;border-radius:50%;border:2px solid var(--border-color);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;font-family:var(--font-heading);transition:all 0.3s;">2</div>
+          <span style="font-weight:600;font-size:0.95rem;color:var(--text-muted);transition:color 0.3s;">Payment</span>
+        </div>
+      </div>
+
+      <div class="checkout-container">
+
+        <!-- STEP 1: Details Form -->
+        <div id="checkoutStep1">
+          <h2 style="margin-bottom:8px;font-family:var(--font-heading);text-align:center;">Your Details</h2>
+          <p style="text-align:center;color:var(--text-muted);margin-bottom:32px;font-size:0.95rem;">Enter your shipping info to continue to payment.</p>
+
+          <form id="orderForm" novalidate onsubmit="goToStep2(event)">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="field-name" class="form-control" placeholder="John Doe" autocomplete="name">
+              <span class="field-error" id="err-name"></span>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" id="field-email" class="form-control" placeholder="john@example.com" autocomplete="email">
+              <span class="field-error" id="err-email"></span>
+            </div>
+            <div class="form-group">
+              <label>Shipping Address</label>
+              <input type="text" id="field-address" class="form-control" placeholder="Street Address, City, ZIP, Country" autocomplete="street-address">
+              <span class="field-error" id="err-address"></span>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" id="field-phone" class="form-control" placeholder="+1 (555) 000-0000" autocomplete="tel">
+              <span class="field-error" id="err-phone"></span>
+            </div>
+            <div class="form-group">
+              <label>Product</label>
+              <select id="field-product" class="form-control" onchange="updateOrderTotal()">
+                <option value="99">Silverpathian Vault Pro — $99</option>
+                <option value="188">2× Silverpathian Vault Pro — $188</option>
+                <option value="0">Bulk / Enterprise Inquiry</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width:100%;margin-top:8px;justify-content:center;font-size:1rem;padding:16px;">
+              Continue to Payment →
+            </button>
+            <p style="text-align:center;margin-top:14px;font-size:0.78rem;color:var(--text-muted);">
+              By placing an order you agree to our <a href="/terms" style="color:var(--accent-primary)">Terms of Service</a>.
+            </p>
+          </form>
+        </div>
+
+        <!-- STEP 2: Order Review + Pay -->
+        <div id="checkoutStep2" style="display:none;">
+          <h2 style="margin-bottom:8px;font-family:var(--font-heading);text-align:center;">Review &amp; Pay</h2>
+          <p style="text-align:center;color:var(--text-muted);margin-bottom:32px;font-size:0.95rem;">Confirm your order details before proceeding to crypto payment.</p>
+
+          <!-- Order summary card -->
+          <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:16px;padding:28px;margin-bottom:24px;">
+            <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:2px;color:var(--accent-primary);font-weight:600;margin-bottom:18px;">Order Summary</div>
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--border-color);">
+                <span style="color:var(--text-muted);font-size:0.9rem;">Product</span>
+                <span id="summary-product" style="font-weight:600;color:#fff;font-size:0.95rem;text-align:right;max-width:60%;"></span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--border-color);">
+                <span style="color:var(--text-muted);font-size:0.9rem;">Name</span>
+                <span id="summary-name" style="font-weight:500;color:#fff;font-size:0.95rem;"></span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--border-color);">
+                <span style="color:var(--text-muted);font-size:0.9rem;">Email</span>
+                <span id="summary-email" style="font-weight:500;color:#fff;font-size:0.95rem;word-break:break-all;text-align:right;max-width:60%;"></span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--border-color);">
+                <span style="color:var(--text-muted);font-size:0.9rem;">Ship to</span>
+                <span id="summary-address" style="font-weight:500;color:#fff;font-size:0.95rem;text-align:right;max-width:60%;"></span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="color:var(--text-muted);font-size:0.9rem;">Total</span>
+                <span id="summary-total" style="font-family:var(--font-heading);font-size:2rem;color:var(--accent-primary);font-weight:700;"></span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:rgba(0,240,255,0.04);border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:14px 18px;margin-bottom:24px;display:flex;gap:12px;align-items:flex-start;">
+            <span style="font-size:1.1rem;flex-shrink:0;">🔒</span>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin:0;line-height:1.5;">Payment is processed securely via <strong style="color:#fff;">CryptoCloud</strong>. You will choose your preferred cryptocurrency on the next page.</p>
+          </div>
+
+          <button id="payBtn" onclick="handleOrder()" class="btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:16px;">
+            <span id="payBtnText">Pay with Crypto →</span>
+          </button>
+          <button onclick="backToStep1()" style="width:100%;margin-top:12px;padding:14px;background:none;border:1px solid var(--border-color);border-radius:8px;color:var(--text-muted);font-size:0.95rem;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#fff';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='var(--text-muted)'">
+            ← Edit Details
+          </button>
+        </div>
+
+        <!-- Error state -->
+        <div id="checkoutError" style="display:none;text-align:center;padding:40px 0;">
+          <div style="font-size:3rem;margin-bottom:16px;">⚠️</div>
+          <h3 style="font-family:var(--font-heading);margin-bottom:12px;">Payment link error</h3>
+          <p id="checkoutErrorMsg" style="color:var(--text-muted);margin-bottom:28px;"></p>
+          <button class="btn-primary" onclick="backToStep1()">Try Again</button>
+        </div>
+
+      </div>
+    
+</main>
+
+<footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <!-- BIGGEST FOOTER LOGO -->
+        <img src="https://z-cdn-media.chatglm.cn/files/d263efbc-641c-4ed9-9336-a84d72075826.png?auth_key=1879001810-474fcfa80007404496334734822122dd-0-450c47359f17500c4839d1f8749a159f" alt="Silverpathian Logo" class="footer-logo-img">
+        <h4>Silverpathian</h4>
+        <p>Hardware Wallet for Offline Crypto Security.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <p>Dollar Media Technology Limited</p>
+        <p>Kam Fone Mansion, 16 KAMFONG STREET,<br>YAU TSIM MONG DISTRICT KOWLOON,<br>Mong Kok, Hong Kong</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Email: <a href="mailto:support@silverpathian.com">support@silverpathian.com</a></p>
+        <p>Google Ads CID: 943-996-2139</p>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <p><a href="/privacy" >Privacy Policy</a></p>
+        <p><a href="/terms" >Terms of Service</a></p>
+        <p><a href="/cookies" >Cookie Policy</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © Dollar Media Technology Limited. All rights reserved.
+    </div>
+  </footer>
+
+<script>
+    // --- CRYPTOCLOUD ---
+    const CC_API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiT1RBMU9EYz0iLCJ0eXBlIjoicHJvamVjdCIsInYiOiJmNTA4MThkM2JhY2Q3ZjM5M2MwYzIxZTBlOTQ2NTE4YTQ0MzliMGViNWU3MjI5Yzk3MGM4MDRlOGFhNDA2OTQ2IiwiZXhwIjo4ODE3MTkyMjM4M30.Oi9eO98Y11IHO3IoiZMTttUcG2StaLfPOWd-5unAHIA';
+    const CC_SHOP_ID = 'eJTcVvC2op80lK1Q';
+
+    // --- ENGLISH VALIDATION ---
+    function validateField(id, errId, msg) {
+      const el = document.getElementById(id);
+      const err = document.getElementById(errId);
+      const val = el.value.trim();
+      if (!val) {
+        el.classList.add('invalid');
+        err.textContent = msg;
+        return false;
+      }
+      el.classList.remove('invalid');
+      err.textContent = '';
+      return true;
+    }
+    function validateEmail(id, errId) {
+      const el = document.getElementById(id);
+      const err = document.getElementById(errId);
+      const val = el.value.trim();
+      if (!val) { el.classList.add('invalid'); err.textContent = 'Email address is required.'; return false; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) { el.classList.add('invalid'); err.textContent = 'Please enter a valid email address.'; return false; }
+      el.classList.remove('invalid'); err.textContent = ''; return true;
+    }
+
+    // --- STEP 1 → STEP 2 ---
+    function goToStep2(e) {
+      e.preventDefault();
+      // Validate all fields in English
+      const v1 = validateField('field-name',    'err-name',    'Full name is required.');
+      const v2 = validateEmail('field-email',   'err-email');
+      const v3 = validateField('field-address', 'err-address', 'Shipping address is required.');
+      const v4 = validateField('field-phone',   'err-phone',   'Phone number is required.');
+      if (!v1 || !v2 || !v3 || !v4) return;
+
+      const productEl = document.getElementById('field-product');
+      const amount = productEl.value;
+
+      // Bulk inquiry shortcut
+      if (amount === '0') {
+        alert('For bulk orders please contact us at support@silverpathian.com');
+        return;
+      }
+
+      // Populate step 2 summary
+      document.getElementById('summary-product').textContent = productEl.options[productEl.selectedIndex].text;
+      document.getElementById('summary-name').textContent    = document.getElementById('field-name').value.trim();
+      document.getElementById('summary-email').textContent   = document.getElementById('field-email').value.trim();
+      document.getElementById('summary-address').textContent = document.getElementById('field-address').value.trim();
+      document.getElementById('summary-total').textContent   = '$' + amount;
+
+      // Animate step indicator
+      document.getElementById('stepLine').style.width = '100%';
+      document.getElementById('stepInd2').style.opacity = '1';
+      document.getElementById('stepNum2').style.background = 'var(--accent-primary)';
+      document.getElementById('stepNum2').style.color = '#000';
+      document.getElementById('stepNum2').style.borderColor = 'var(--accent-primary)';
+
+      // Switch panels
+      document.getElementById('checkoutStep1').style.display = 'none';
+      document.getElementById('checkoutStep2').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function backToStep1() {
+      document.getElementById('checkoutStep2').style.display = 'none';
+      document.getElementById('checkoutError').style.display = 'none';
+      document.getElementById('checkoutStep1').style.display = 'block';
+      // Reset step indicator
+      document.getElementById('stepLine').style.width = '0%';
+      document.getElementById('stepInd2').style.opacity = '0.35';
+      document.getElementById('stepNum2').style.background = '';
+      document.getElementById('stepNum2').style.color = 'var(--text-muted)';
+      document.getElementById('stepNum2').style.borderColor = 'var(--border-color)';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // --- PAY BUTTON (step 2) ---
+    async function handleOrder() {
+      const amount  = document.getElementById('field-product').value;
+      const email   = document.getElementById('field-email').value.trim();
+      const name    = document.getElementById('field-name').value.trim();
+      const address = document.getElementById('field-address').value.trim();
+      const phone   = document.getElementById('field-phone').value.trim();
+
+      const btn     = document.getElementById('payBtn');
+      const btnText = document.getElementById('payBtnText');
+      btn.disabled  = true;
+      btnText.textContent = 'Creating payment link…';
+
+      const orderDesc = `Silverpathian | ${name} | ${email} | ${phone} | ${address}`;
+      const base = window.location.href.replace(/\/[^/]*$/, '');
+
+      try {
+        const res = await fetch('https://api.cryptocloud.plus/v2/invoice/create', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Token ' + CC_API_KEY,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            amount:   parseFloat(amount),
+            shop_id:  CC_SHOP_ID,
+            currency: 'USD',
+            email:    email,
+            order_id: 'SP-' + Date.now(),
+            add_fields: { description: orderDesc },
+            success_url: base + '/success',
+            cancel_url:  base + '/failed'
+          })
+        });
+
+        const data = await res.json();
+
+        if (data.status === 'success' && data.result && data.result.link) {
+          window.location.href = data.result.link;
+        } else {
+          throw new Error(data.message || 'Could not create payment link. Please try again.');
+        }
+      } catch (err) {
+        document.getElementById('checkoutStep2').style.display = 'none';
+        document.getElementById('checkoutError').style.display = 'block';
+        document.getElementById('checkoutErrorMsg').textContent = err.message || 'Payment failed. Please try again.';
+      } finally {
+        btn.disabled = false;
+        btnText.textContent = 'Pay with Crypto →';
+      }
+    }
+
+    // Live clear errors on input
+    ['field-name','field-email','field-address','field-phone'].forEach(function(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('input', function() {
+        el.classList.remove('invalid');
+        const errEl = document.getElementById('err-' + id.replace('field-',''));
+        if (errEl) errEl.textContent = '';
+      });
+    });
+
+    // --- PARALLAX EFFECT (HOME ONLY) ---
+    const heroSection = document.querySelector('.hero');
+    const deviceImg = document.getElementById('hero-device-img');
+    
+    if(heroSection && deviceImg) {
+      heroSection.addEventListener('mousemove', (e) => {
+        const x = (window.innerWidth / 2 - e.clientX) / 25;
+        const y = (window.innerHeight / 2 - e.clientY) / 25;
+        // Combines the CSS animation with JS transform is tricky, so we strictly control it here or use a wrapper
+        // For simplicity, we modify the rotation slightly
+        deviceImg.style.transform = `translateY(${y}px) rotateY(${x}deg) rotateX(${-y}deg)`;
+      });
+      heroSection.addEventListener('mouseleave', () => {
+        // Return to CSS animation control
+        deviceImg.style.transform = ''; 
+      });
+    }
+
+    // --- CAROUSEL ---
+    let carouselIndex = 0;
+    const carouselTotal = 2;
+
+    function carouselMove(dir) {
+      carouselIndex = (carouselIndex + dir + carouselTotal) % carouselTotal;
+      carouselUpdate();
+    }
+    function carouselGoTo(i) {
+      carouselIndex = i;
+      carouselUpdate();
+    }
+    function carouselUpdate() {
+      const track = document.getElementById('carouselTrack');
+      if (track) track.style.transform = `translateX(-${carouselIndex * 100}%)`;
+      document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === carouselIndex);
+      });
+      document.querySelectorAll('.spec-item').forEach(item => {
+        const slide = parseInt(item.getAttribute('data-slide'));
+        item.classList.toggle('active-spec', slide === carouselIndex);
+      });
+    }
+
+    // Auto-advance carousel every 4s
+    setInterval(() => carouselMove(1), 4000);
+
+    // Swipe support
+    (function() {
+      let startX = 0;
+      const outer = document.querySelector('.carousel-track-outer');
+      if (!outer) return;
+      outer.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+      outer.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) carouselMove(diff > 0 ? 1 : -1);
+      });
+    })();
+
+    // --- FAQ TOGGLE ---
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+  </script>
+
+
+  <script>
+  // ===== BURGER MENU =====
+  (function() {
+    var burgerBtn = document.getElementById('burgerBtn');
+    var mobileMenu = document.getElementById('mobileMenu');
+    var mobileClose = document.getElementById('mobileClose');
+    if (!burgerBtn || !mobileMenu) return;
+
+    function openMenu() {
+      burgerBtn.classList.add('open');
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      burgerBtn.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    burgerBtn.addEventListener('click', function() {
+      mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+  })();
+  </script>
+
+</body>
+</html>
